@@ -1,0 +1,38 @@
+@import "../../Variables.scss";
+
+.SectionHeader {
+  text-align: center;
+  position: relative;
+  &:before {
+    content: "";
+    width: 100%;
+    top: 27px;
+    height: 1px;
+    display: block;
+    background-color: $--vela-border-color;
+    position: absolute;
+  }
+  .title {
+    padding: 0 0 5px;
+    margin: 0;
+    position: relative;
+    font-size: 36px;
+    line-height: 52px;
+    font-weight: 400;
+    color: $--vela-text-color-secondary;
+    font-family: $--vela-font-family-secondary;
+
+    display: inline-block;
+    background-color: $--vela-body-bg;
+    padding: 0 30px;
+    position: relative;
+  }
+  .sub-title {
+    color: $--vela-text-color-primary;
+    font-weight: 400;
+    font-size: $--vela-font-size;
+    line-height: calc(($--vela-font-size) + 5px);
+    margin: 5px auto 10px;
+    display: block;
+  }
+}

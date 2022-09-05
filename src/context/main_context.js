@@ -8,6 +8,11 @@ const theme = createTheme({
   typography: {
     fontFamily: ["Poppins", "sans-serif"].join(","),
   },
+  palette: {
+    primary: {
+      main: "#bd8448",
+    },
+  },
 });
 export const MainProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);

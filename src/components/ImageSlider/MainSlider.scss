@@ -30,6 +30,8 @@
         margin: 0;
         font-weight: 600;
         padding: 0;
+        animation: left-right1 1.6s ease-in backwards;
+
         // transform: translate(-500px);
         // opacity: 0;
         // transition-delay: 0.4s;
@@ -41,9 +43,9 @@
         margin-top: 20px;
         display: inline-block;
         max-width: 515px;
-        //   transform: translate(-500px);
-        //   opacity: 0;
-        //   transition-delay: 0.6s;
+        // transform: translate(-500px);
+        // opacity: 0;
+        // //   transition-delay: 0.6s;
       }
       .btn {
         border: 1px solid #201f1f;
@@ -65,27 +67,42 @@
   }
 }
 
-// .slick-slide {
-//   &.slick-active {
-//     .info {
-//       .header {
-//         transition: 0.4s;
-//         transform: translate(0);
-//         opacity: 1;
-//       }
-//       .desc {
-//         opacity: 1;
-//         transition-delay: 0.6s;
-//         transform: translate(0);
-//       }
-//       .btn {
-//         transition-delay: 0.8s;
-//         opacity: 1;
-//         transform: translate(0);
-//       }
-//     }
-//   }
-// }
+.slick-slide {
+  &.slick-active {
+    .info {
+      .header {
+        animation: bounceInLeft 1.6s ease-in backwards;
+
+        // transition: all 1s ease-in-out;
+        // transition-delay: 0.4s;
+        // transform: translate(0);
+        // opacity: 1;
+      }
+      .desc {
+        animation: bounceInLeft 2.2s ease-in backwards;
+
+        // transition: all 1s ease-in-out;
+
+        // opacity: 1;
+        // transition-delay: 0.6s;
+        // transform: translate(0);
+      }
+      .btn {
+        animation: bounceInLeft 2.8s ease-in backwards;
+
+        // transition: all 1s ease-in-out;
+
+        // transition-delay: 0.8s;
+        // opacity: 1;
+        // transform: translate(0);
+        &:hover {
+          transition: all 0.2s ease-in-out;
+          transition-delay: 0s;
+        }
+      }
+    }
+  }
+}
 
 .slick-dots {
   bottom: 6vw;
@@ -143,3 +160,20 @@
 //     left: 30px;
 //   }
 // }
+
+@keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(30px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
