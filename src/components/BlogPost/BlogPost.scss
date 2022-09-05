@@ -1,0 +1,50 @@
+@import "../../Variables.scss";
+
+.BlogPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 385px;
+  max-height: 462px;
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .content-container {
+    .title {
+      margin: 20px 0 5px;
+      font-family: $--vela-font-family-secondary;
+      font-size: 20px;
+      font-weight: 400;
+      transition: all 0.35s ease;
+      color: $--vela-heading-color;
+      &:hover {
+        color: $--vela-color-primary;
+        cursor: pointer;
+      }
+    }
+    .meta {
+      padding: 5px 0;
+      line-height: 20px;
+      color: #8c8c8c;
+      font-size: 14px;
+      .author {
+        color: $--vela-color-primary;
+        margin-left: 5px;
+      }
+    }
+    .desc {
+      padding: 10px 0;
+      line-height: 24px;
+      margin-bottom: 15px;
+    }
+  }
+}

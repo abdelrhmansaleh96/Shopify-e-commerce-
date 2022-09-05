@@ -5,7 +5,7 @@ import { ThemeProvider } from "@mui/material";
 import { useMainContext } from "./context/main_context";
 import MainSlider from "./components/ImageSlider/MainSlider";
 import SectionHeader from "./components/SectionHeader/SectionHeader";
-import MainCard from "./components/MainCard/MainCard";
+import BlogPost from "./components/BlogPost/BlogPost";
 
 function App() {
   const { theme } = useMainContext();
@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <MainSlider />
         <SectionHeader />
-        <MainCard />
+        <BlogPost />
       </ThemeProvider>
     </>
   );
