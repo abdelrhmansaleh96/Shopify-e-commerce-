@@ -15,3 +15,10 @@
     width: fit-content;
   }
 }
+@media (max-width: 999px) {
+  .Trending {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

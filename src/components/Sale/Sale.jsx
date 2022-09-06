@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Sale.scss";
 import "../SectionHeader/SectionHeader.jsx";
 import SectionHeader from "../SectionHeader/SectionHeader.jsx";
@@ -12,12 +12,25 @@ import logo5 from "../../assets/small-logos/logo_image5.webp";
 import logo6 from "../../assets/small-logos/logo_image6.webp";
 
 const Sale = () => {
+  const [slides, setSlides] = useState(4);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 999) {
+        setSlides(3);
+      }
+      if (window.innerWidth < 570) {
+        setSlides(2);
+      }
+    };
+    handleResize();
+    // window.addEventListener("resize", handleResize);
+  }, [window.innerWidth]);
   return (
     <>
-      <SectionHeader title={"Sale Off"} />
       <div className="Sale">
+        <SectionHeader title={"Sale Off"} />
         <div className="items">
-          <SubSlider slides={4}>
+          <SubSlider slides={slides}>
             <MainCard />
             <MainCard />
             <MainCard />
@@ -28,7 +41,7 @@ const Sale = () => {
           </SubSlider>
         </div>
         <div className="logos">
-          <SubSlider slides={4}>
+          <SubSlider slides={slides}>
             <div>
               <img className="logo" src={logo1} alt="logo" />
             </div>

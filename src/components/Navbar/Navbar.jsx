@@ -24,7 +24,7 @@ const navItems = ["Home", "Shop", "Collection", "Blog", "Contact"];
 function Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const trigger = useScrollTrigger({ threshold: 70 });
+  const trigger = useScrollTrigger({ threshold: 70, disableHysteresis: true });
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);

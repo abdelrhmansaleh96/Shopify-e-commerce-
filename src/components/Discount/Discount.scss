@@ -1,0 +1,47 @@
+@import "../../Variables.scss";
+.Discount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 60px auto;
+  width: 80vw;
+  .title {
+    font-size: 36px;
+    font-weight: 400;
+    margin: 100px 0 20px;
+    line-height: 40px;
+    color: $--vela-text-color-secondary;
+    padding: 0;
+  }
+  .desc {
+    padding-bottom: 50px;
+    width: 100%;
+    max-width: 630px;
+    margin: auto;
+    color: $--vela-footer-textcolor;
+    font-size: $--vela-font-size;
+    line-height: 24px;
+    text-align: center;
+  }
+  .btn {
+    background-color: rgba(0, 0, 0, 0);
+    color: #201f1f;
+    padding: 16px 40px;
+    width: fit-content;
+    color: $--vela-text-color-secondary;
+    border: 2px solid #000;
+    cursor: pointer;
+    padding: 17px 60px;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all 0.3s ease-in-out 0s;
+
+    margin-top: 42px;
+    &:hover {
+      color: white;
+      background-color: #bd8448;
+      border-color: #bd8448;
+    }
+  }
+}

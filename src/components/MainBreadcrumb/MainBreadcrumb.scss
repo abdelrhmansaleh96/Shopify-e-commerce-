@@ -1,0 +1,12 @@
+.MainBreadcrumb {
+  margin-top: -70px;
+  .image-container {
+    display: flex;
+    width: 100%;
+    .image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}

@@ -12,6 +12,9 @@ const theme = createTheme({
     primary: {
       main: "#bd8448",
     },
+    secondary: {
+      main: "#6c6c6c",
+    },
   },
 });
 export const MainProvider = ({ children }) => {

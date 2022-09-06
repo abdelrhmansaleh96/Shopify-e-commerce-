@@ -11,8 +11,10 @@
     position: relative;
     .slideImage {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
+      // ask mostafa
+      min-height: 0% !important;
     }
     .info {
       z-index: 5;
@@ -175,5 +177,44 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 999px) {
+  .imageSlider {
+    margin: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .imageSlider {
+    .imageContainer {
+      .info {
+        scale: 0.8;
+        max-width: 499px;
+        flex-direction: column;
+        position: absolute;
+        top: 23%;
+        left: -22px;
+        .btn {
+          scale: 0.8;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .slick-dots {
+    scale: 0.7;
+  }
+  .imageSlider {
+    .imageContainer {
+      .info {
+        scale: 0.5;
+        top: -9%;
+        left: -74px;
+      }
+    }
   }
 }

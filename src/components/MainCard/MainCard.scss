@@ -13,7 +13,8 @@
 
     .media-container {
       position: relative;
-      height: 365px;
+      display: flex;
+      flex-direction: column;
       .label {
         position: absolute;
         top: 0;
@@ -61,7 +62,7 @@
         }
       }
       .card-image {
-        height: 365px;
+        height: auto;
         width: 100%;
         object-fit: cover;
         transition: all 0.4s ease-in-out;
