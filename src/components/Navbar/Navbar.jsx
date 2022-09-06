@@ -16,6 +16,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import "./Navbar.scss";
 import LoginMenu from "./LoginMenu";
+import { useScrollTrigger } from "@mui/material";
 
 const drawerWidth = 240;
 const navItems = ["Home", "Shop", "Collection", "Blog", "Contact"];
@@ -23,6 +24,7 @@ const navItems = ["Home", "Shop", "Collection", "Blog", "Contact"];
 function Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const trigger = useScrollTrigger({ threshold: 70 });
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -58,10 +60,12 @@ function Navbar(props) {
       <Box sx={{ display: "flex" }}>
         <AppBar
           component="nav"
-          sx={{
-            backgroundColor: "transparent",
-            color: "black",
-            boxShadow: "none",
+          elevation={trigger ? 24 : 0}
+          style={{
+            backgroundColor: trigger ? "#fff" : "transparent",
+            boxShadow: trigger
+              ? "5px 0px 27px -5px rgba(0, 0, 0, 0.3) !important"
+              : undefined,
           }}
         >
           <Toolbar

@@ -4,9 +4,12 @@ import Navbar from "./components/Navbar/Navbar";
 import { ThemeProvider } from "@mui/material";
 import { useMainContext } from "./context/main_context";
 import MainSlider from "./components/ImageSlider/MainSlider";
-import SectionHeader from "./components/SectionHeader/SectionHeader";
 import Footer from "./components/Footer/Footer";
-import Container from "@mui/material";
+import Sale from "./components/Sale/Sale";
+import Trending from "./components/Trending/Trending";
+import Banner from "./components/Banner/Banner";
+import BlogPost from "./components/BlogPost/BlogPost";
+import BlogPosts from "./components/BlogPosts/BlogPosts";
 
 function App() {
   const { theme } = useMainContext();
@@ -15,7 +18,10 @@ function App() {
       <ThemeProvider theme={theme}>
         <Navbar />
         <MainSlider />
-        <SectionHeader />
+        <Trending />
+        <Banner />
+        <Sale />
+        <BlogPosts />
         <Footer />
       </ThemeProvider>
     </>

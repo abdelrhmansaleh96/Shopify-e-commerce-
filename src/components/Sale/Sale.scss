@@ -1,0 +1,27 @@
+.Sale {
+  width: 100vw;
+
+  margin: 24px 0;
+  .items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 40px;
+    padding: 40px 0 45px;
+  }
+  .logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 90px;
+    margin-bottom: 60px;
+    .logo {
+      opacity: 0.4;
+      transition: all 0.3s ease-in-out 0s;
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  }
+}

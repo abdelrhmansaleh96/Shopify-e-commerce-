@@ -1,0 +1,17 @@
+.Trending {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 40px auto 60px auto;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .action {
+    align-self: center;
+    width: fit-content;
+  }
+}

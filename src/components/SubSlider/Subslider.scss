@@ -1,0 +1,41 @@
+.SaleSlider {
+  width: 80vw;
+  .slick-slider {
+    .slick-arrow {
+      z-index: 1000;
+      &:hover {
+        background-color: black;
+      }
+    }
+    .slick-next {
+      background-color: #00000026;
+      width: 50px;
+      height: 50px;
+      right: 12px;
+      top: 33%;
+      transition: all 0.35s ease;
+      transform: translate(80px);
+      opacity: 0;
+    }
+    .slick-prev {
+      background-color: #00000026;
+      width: 50px;
+      height: 50px;
+      left: 12px;
+      top: 33%;
+      transition: all 0.35s ease;
+      transform: translate(-80px);
+      opacity: 0;
+    }
+    &:hover {
+      .slick-next {
+        transform: translate(0);
+        opacity: 1;
+      }
+      .slick-prev {
+        transform: translate(0);
+        opacity: 1;
+      }
+    }
+  }
+}
