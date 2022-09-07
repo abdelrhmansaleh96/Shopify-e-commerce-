@@ -1,0 +1,107 @@
+@import "../../Variables.scss";
+.Blog {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 14px;
+    .articles {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 32px 0;
+      .item {
+        display: block;
+        padding: 5px 0;
+        color: $--vela-text-color-primary;
+        font-size: var(--vela-font-size);
+        line-height: 20px;
+        text-decoration: none;
+        -webkit-transition: all 0.35s ease;
+        -o-transition: all 0.35s ease;
+        transition: all 0.35s ease;
+        line-height: 26px;
+        cursor: pointer;
+        &:hover {
+          color: $--vela-color-primary;
+        }
+      }
+      .header {
+        font-family: $--vela-font-family-secondary;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 20px;
+        margin: 24px 0 10px;
+
+        position: relative;
+        color: $--vela-text-color-secondary;
+      }
+      .article {
+        min-height: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .desc {
+          display: block;
+          line-height: 24px;
+          font-size: $--vela-font-size;
+          font-weight: 400;
+          color: $--vela-text-color-secondary;
+          text-decoration: none;
+          font-weight: 600;
+          cursor: pointer;
+          &:hover {
+            color: $--vela-color-primary;
+          }
+        }
+        .date {
+          display: block;
+          font-size: 13px;
+          color: $--vela-text-color-banner;
+        }
+      }
+    }
+    .image-container {
+      margin: 32px 4px;
+      position: relative;
+      &:hover {
+        cursor: pointer;
+        &::after,
+        &::before {
+          width: 90%;
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 33;
+        width: 0%;
+        background-color: white;
+        height: 1px;
+        top: 12px;
+        right: 14px;
+        transition: all 0.8s ease-in;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: 33;
+        width: 0%;
+        background-color: white;
+        height: 1px;
+        bottom: 17px;
+        left: 14px;
+        transition: all 0.8s ease-in;
+      }
+
+      .image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        position: relative;
+      }
+    }
+  }
+}

@@ -4,16 +4,10 @@ import { ThemeProvider } from "@mui/material";
 import { useMainContext } from "./context/main_context";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
-// import MainSlider from "./components/ImageSlider/MainSlider";
-// import Footer from "./components/Footer/Footer";
-// import Sale from "./components/Sale/Sale";
-// import Trending from "./components/Trending/Trending";
-// import Banner from "./components/Banner/Banner";
-// import BlogPosts from "./components/BlogPosts/BlogPosts";
-// import Discount from "./components/Discount/Discount";
-// import HomeImage from "./components/HomeImage/HomeImage";
 import Home from "../src/pages/Home/Home";
 import Products from "../src/pages/Products/Products";
+import ContactUs from "./pages/ContactUs/ContactUs";
+import Blog from "./pages/Blog/Blog";
 
 function App() {
   const { theme } = useMainContext();
@@ -26,6 +20,8 @@ function App() {
               <Route path="/">
                 <Route index element={<Home />} />
                 <Route path="products" element={<Products />} />
+                <Route path="contactus" element={<ContactUs />} />
+                <Route path="blogs" element={<Blog />} />
               </Route>
             </Routes>
           </Layout>

@@ -8,7 +8,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
+import DensitySmallIcon from "@mui/icons-material/DensitySmall";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import logo from "../../assets/logo.svg";
@@ -79,9 +79,14 @@ function Navbar(props) {
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { md: "none" } }}
+              sx={{
+                mr: 2,
+                color: "black",
+                alignSelf: "center",
+                display: { sm: "block", md: "none" },
+              }}
             >
-              <MenuIcon />
+              <DensitySmallIcon />
             </IconButton>
             <Box sx={{ width: "150px", height: "auto" }}>
               <img className="logo" src={logo} alt="logo" />
