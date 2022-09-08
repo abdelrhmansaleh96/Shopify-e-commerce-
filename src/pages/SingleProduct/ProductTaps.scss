@@ -1,0 +1,51 @@
+@import "../../Variables.scss";
+.ProductTaps {
+  width: 100%;
+  font-family: $--vela-font-family;
+  font-size: $--vela-font-size;
+  line-height: 24px;
+  color: $--vela-text-color-primary;
+  background-color: $--vela-body-bg;
+  font-weight: 400;
+  .desc {
+    margin-top: 24px;
+  }
+  .return {
+    margin-top: 24px;
+    .title {
+      font-size: 18px;
+      color: black;
+      display: block;
+    }
+  }
+  .reviews-container {
+    margin-top: 24px;
+    border: 1px solid #ececec;
+    padding: 24px;
+    .review {
+      .stars {
+        display: flex;
+        margin-right: 4px;
+      }
+      .header {
+        font-size: 16px;
+        line-height: 24px;
+      }
+      .date {
+        color: $--vela-text-color-primary;
+        font-weight: 700;
+      }
+      .desc {
+        font-size: 13px;
+        line-height: 20px;
+      }
+      .report {
+        float: right;
+        cursor: pointer;
+        &:hover {
+          color: $--vela-color-primary;
+        }
+      }
+    }
+  }
+}

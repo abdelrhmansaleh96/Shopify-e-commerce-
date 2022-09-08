@@ -68,33 +68,77 @@
       position: relative;
       &:hover {
         cursor: pointer;
-        &::after,
-        &::before {
-          width: 90%;
+        .line1,
+        .line2 {
+          animation-name: line_animation;
+          animation-duration: 1.5s;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
+        }
+        .line3,
+        .line4 {
+          animation-name: height_animation;
+          animation-duration: 1.5s;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
         }
       }
-      &::before {
-        content: "";
-        position: absolute;
-        z-index: 33;
+      .line1 {
         width: 0%;
-        background-color: white;
-        height: 1px;
-        top: 12px;
-        right: 14px;
-        transition: all 0.8s ease-in;
-      }
-      &::after {
-        content: "";
         position: absolute;
-        z-index: 33;
-        width: 0%;
-        background-color: white;
-        height: 1px;
-        bottom: 17px;
-        left: 14px;
-        transition: all 0.8s ease-in;
+        z-index: 6;
+        top: 10px;
+        left: 5%;
+        border-bottom: solid 1px #ffffff;
+        border-top-width: 0px;
       }
+      .line2 {
+        width: 0%;
+        position: absolute;
+        z-index: 6;
+        bottom: 13px;
+        left: 5%;
+        border-bottom: solid 1px #ffffff;
+        border-top-width: 0px;
+      }
+      .line3 {
+        height: 0%;
+        position: absolute;
+        z-index: 6;
+        bottom: 4%;
+        left: 5%;
+        border-right: solid 1px #fff;
+      }
+      .line4 {
+        height: 0%;
+        position: absolute;
+        z-index: 6;
+        bottom: 4%;
+        right: 5%;
+        border-right: solid 1px #fff;
+      }
+
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   z-index: 33;
+      //   width: 0%;
+      //   background-color: white;
+      //   height: 1px;
+      //   top: 12px;
+      //   right: 14px;
+      //   transition: all 0.4s ease-in;
+      // }
+      // &::after {
+      //   content: "";
+      //   position: absolute;
+      //   z-index: 33;
+
+      //   border-top: 1px solid white;
+      //   bottom: 17px;
+      //   left: 14px;
+      //   transition: all 0.4s ease-in;
+      // }
 
       .image {
         width: 100%;
@@ -103,5 +147,26 @@
         position: relative;
       }
     }
+  }
+}
+
+@keyframes line_animation {
+  from {
+    left: 50%;
+    width: 0%;
+  }
+  to {
+    left: 5%;
+    width: 90%;
+  }
+}
+@keyframes height_animation {
+  from {
+    bottom: 50%;
+    height: 0%;
+  }
+  to {
+    bottom: 4%;
+    height: 93%;
   }
 }

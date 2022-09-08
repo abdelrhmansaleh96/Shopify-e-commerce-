@@ -102,6 +102,10 @@ const Blog = () => {
                 <div className="item">Tech</div>
               </div>
               <div className="image-container">
+                <div className="line1"></div>
+                <div className="line2"></div>
+                <div className="line3"></div>
+                <div className="line4"></div>
                 <img
                   className="image"
                   src="https://cdn.shopify.com/s/files/1/1573/5553/files/8_360x.png?v=1512187734"
