@@ -14,10 +14,12 @@ import MainCard from "../../components/MainCard/MainCard";
 import ProductZoom from "./ProductZoom";
 import products from "../../products";
 import { useParams } from "react-router-dom";
+import { useMainContext } from "../../context/main_context";
 
 const SingleProduct = () => {
   const [counter, setCounter] = useState(1);
   const { productId } = useParams();
+  const { addToCart, cart } = useMainContext();
   const foundProduct = products.find((prod) => {
     return prod.id === Number(productId);
   });
@@ -106,7 +108,13 @@ const SingleProduct = () => {
                         </div>
                       </div>
 
-                      <div className="add-btn">
+                      <div
+                        className="add-btn"
+                        onClick={() => {
+                          console.log(foundProduct, counter, cart);
+                          addToCart(foundProduct.id, counter, foundProduct);
+                        }}
+                      >
                         <AddIcon sx={{ fontSize: "22px" }} />
                         Add to Cart
                       </div>
