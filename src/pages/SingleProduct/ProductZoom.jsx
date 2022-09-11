@@ -2,11 +2,11 @@ import React from "react";
 import ReactImageZoom from "react-image-zoom";
 import img1 from "../../assets/product-image.webp";
 
-const ProductZoom = () => {
-  const props = {
+const ProductZoom = (props) => {
+  const settings = {
     width: 400,
     zoomWidth: 250,
-    img: img1,
+    img: props.image,
     offset: {
       vertical: 0,
       horizontal: 50,
@@ -14,7 +14,7 @@ const ProductZoom = () => {
   };
   return (
     <div className="ProductZoom">
-      <ReactImageZoom {...props} />
+      <ReactImageZoom {...settings} />
     </div>
   );
 };

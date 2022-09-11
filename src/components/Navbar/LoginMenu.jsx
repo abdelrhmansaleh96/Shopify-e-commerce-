@@ -16,7 +16,8 @@ export default function LoginMenu() {
 
   return (
     <div>
-      <IconButton
+      <div
+      
         id="basic-IconButton"
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
@@ -24,7 +25,7 @@ export default function LoginMenu() {
         onClick={handleClick}
       >
         <DensityMediumOutlinedIcon />
-      </IconButton>
+      </div>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}

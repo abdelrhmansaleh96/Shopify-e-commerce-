@@ -9,6 +9,7 @@ import Products from "../src/pages/Products/Products";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Blog from "./pages/Blog/Blog";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
+import Cart from "./pages/Cart/Cart";
 
 function App() {
   const { theme } = useMainContext();
@@ -25,6 +26,7 @@ function App() {
                   <Route path=":productId" element={<SingleProduct />} />
                 </Route>
                 <Route path="contactus" element={<ContactUs />} />
+                <Route path="cart" element={<Cart />} />
                 <Route path="blogs" element={<Blog />} />
               </Route>
             </Routes>

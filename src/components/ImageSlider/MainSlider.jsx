@@ -6,7 +6,7 @@ import slide3 from "../../assets/imageSlider1/slide3.jpg";
 import Slider from "react-slick";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { motion } from "framer-motion/dist/framer-motion";
+// import { motion } from "framer-motion/dist/framer-motion";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -62,24 +62,21 @@ const MainSlider = () => {
       title: "Slide 1",
       header: "Handmade",
       sub: "Hand Carved Coffe",
-      desc:
-        " As rich and unique as the coffee beans it is intended for, this little scoop will make your morning ritual a special occasion every day.As rich and unique as the coffee beans it is intended for, this little scoop will make your morning ritual a special occasion every day.",
+      desc: " As rich and unique as the coffee beans it is intended for, this little scoop will make your morning ritual a special occasion every day.As rich and unique as the coffee beans it is intended for, this little scoop will make your morning ritual a special occasion every day.",
     },
     {
       image: slide2,
       title: "Slide 2",
       header: "Think Different &",
       sub: "Do otherwise",
-      desc:
-        "Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.",
+      desc: "Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.",
     },
     {
       image: slide3,
       title: "Slide 3",
       header: "High Beam",
       sub: "By Tom Chung",
-      desc:
-        "High Beam is an adjustable desk or shelf light that offers a wide variety of lighting possibilities.",
+      desc: "High Beam is an adjustable desk or shelf light that offers a wide variety of lighting possibilities.",
     },
   ];
   const settings = {
@@ -106,7 +103,7 @@ const MainSlider = () => {
                 alt={item.title}
               />
 
-              <motion.div
+              <div
                 initial={{ x: "-100vw", opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 className="info"
@@ -115,7 +112,7 @@ const MainSlider = () => {
                 <h3 className="header">{item.sub}</h3>
                 <div className="desc">{item.desc}</div>
                 <div className="btn">DISCOVER NOW</div>
-              </motion.div>
+              </div>
             </div>
           );
         })}

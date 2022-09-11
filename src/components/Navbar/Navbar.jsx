@@ -17,9 +17,20 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 import "./Navbar.scss";
 import LoginMenu from "./LoginMenu";
 import { useScrollTrigger } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
-const navItems = ["Home", "Shop", "Collection", "Blog", "Contact"];
+
+const navItems = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  { name: "Shop", link: "/products" },
+  { name: "Collection", link: "/collection" },
+  { name: "Blog", link: "/blogs" },
+  { name: "Contact", link: "/contactus" },
+];
 
 function Navbar(props) {
   const { window } = props;
@@ -33,20 +44,21 @@ function Navbar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <List>
-        {navItems.map((item) => (
-          <ListItem
-            key={item}
-            disablePadding
-            sx={{
-              ":hover": {
-                color: "#bd8448",
-              },
-            }}
-          >
-            <ListItemButton sx={{ textAlign: "center", margin: "12px 0" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
+        {navItems.map((item, index) => (
+          <Link key={index} to={item.link}>
+            <ListItem
+              disablePadding
+              sx={{
+                ":hover": {
+                  color: "#bd8448",
+                },
+              }}
+            >
+              <ListItemButton sx={{ textAlign: "center", margin: "12px 0" }}>
+                <ListItemText primary={item.name} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>
@@ -92,9 +104,9 @@ function Navbar(props) {
               <img className="logo" src={logo} alt="logo" />
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <Button
-                  key={item}
+                  key={index}
                   sx={{
                     color: "#a3a3a3",
                     "&:hover": {
@@ -102,7 +114,7 @@ function Navbar(props) {
                     },
                   }}
                 >
-                  {item}
+                  <Link to={item.link}>{item.name}</Link>
                 </Button>
               ))}
             </Box>
@@ -129,7 +141,7 @@ function Navbar(props) {
                 }}
                 startIcon={<ShoppingBasketOutlinedIcon />}
               >
-                Cart
+                <Link to="/cart">Cart</Link>
               </Button>
               <Button>
                 <LoginMenu />

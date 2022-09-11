@@ -7,7 +7,7 @@ const BlogPost = () => {
   return (
     <div className="BlogPost">
       <div className="image-container">
-        <img className="image" src={post1} alt="post-image" />
+        <img className="image" src={post1} alt="post" />
       </div>
       <div className="content-container">
         <h3 className="title">Anteposuerit litterarum formas.</h3>

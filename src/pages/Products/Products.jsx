@@ -11,6 +11,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MainCard from "../../components/MainCard/MainCard";
 import { Pagination } from "@mui/material";
+import products from "../../products";
 
 function SelectVariants() {
   const [age, setAge] = useState("");
@@ -19,8 +20,18 @@ function SelectVariants() {
     setAge(event.target.value);
   };
 
+  const p = {
+    id: 1,
+    name: "Sacrificial Chair Design",
+    price: "$132",
+    discount: "$142",
+    // image1: product11,
+    // image2: product12,
+  };
+
   return (
     <div>
+      {p?.name}
       <FormControl variant="standard" sx={{ m: 1, minWidth: 160 }}>
         <InputLabel id="demo-simple-select-filled-label">
           Deafult Sorting
@@ -83,7 +94,21 @@ const Products = () => {
           <SelectVariants />
         </div>
         <Grid container spacing={2}>
-          <Grid item xs={6} sm={4} lg={3}>
+          {products.map((product, index) => {
+            return (
+              <Grid item xs={6} sm={4} lg={3} key={index}>
+                <MainCard
+                  name={product.name}
+                  price={product.price}
+                  discount={product.discount}
+                  image1={product.image1}
+                  image2={product.image2}
+                  id={product.id}
+                />
+              </Grid>
+            );
+          })}
+          {/* <Grid item xs={6} sm={4} lg={3}>
             <MainCard />
           </Grid>
           <Grid item xs={6} sm={4} lg={3}>
@@ -118,7 +143,7 @@ const Products = () => {
           </Grid>
           <Grid item xs={6} sm={4} lg={3}>
             <MainCard />
-          </Grid>
+          </Grid> */}
         </Grid>
         <Divider />
         <div className="pagination">
