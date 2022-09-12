@@ -16,8 +16,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import "./Navbar.scss";
 import LoginMenu from "./LoginMenu";
-import { useScrollTrigger } from "@mui/material";
+import { Badge, useScrollTrigger } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useMainContext } from "../../context/main_context";
+import { fontSize } from "@mui/system";
 
 const drawerWidth = 240;
 
@@ -36,6 +38,7 @@ function Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const trigger = useScrollTrigger({ threshold: 70, disableHysteresis: true });
+  const { total_items } = useMainContext();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -141,7 +144,17 @@ function Navbar(props) {
                 }}
                 startIcon={<ShoppingBasketOutlinedIcon />}
               >
-                <Link to="/cart">Cart</Link>
+                <Badge
+                  badgeContent={total_items}
+                  sx={{
+                    ".css-1iinujz-MuiBadge-badge": {
+                      border: "1px solid #c0932f",
+                      fontSize: "14px",
+                    },
+                  }}
+                >
+                  <Link to="/cart">Cart</Link>
+                </Badge>
               </Button>
               <Button>
                 <LoginMenu />

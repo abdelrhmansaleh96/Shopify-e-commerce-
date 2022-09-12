@@ -17,6 +17,7 @@ const initialState = {
   cart: getLocalStorage(),
   total_items: 0,
   total_amount: 0,
+  loading: false,
 };
 const theme = createTheme({
   typography: {
@@ -37,12 +38,31 @@ export const MainProvider = ({ children }) => {
   const addToCart = (id, amount, product) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, amount, product } });
   };
+  const removeFromCart = (id) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: id });
+  };
+  const toggleAmount = (id, value) => {
+    dispatch({ type: "TOGGLE_AMOUNT", payload: { id, value } });
+  };
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
-    console.log(state.cart);
+    // console.log(state.cart, state.total_items, state.total_amount);
+    dispatch({ type: "CALCULATE_TOTAL" });
   }, [state.cart]);
   return (
-    <MainContext.Provider value={{ ...state, theme, addToCart }}>
+    <MainContext.Provider
+      value={{
+        ...state,
+        theme,
+        addToCart,
+        removeFromCart,
+        toggleAmount,
+        clearCart,
+      }}
+    >
       {children}
     </MainContext.Provider>
   );

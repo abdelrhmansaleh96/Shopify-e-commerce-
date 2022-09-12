@@ -1,11 +1,11 @@
 import React from "react";
 import ReactImageZoom from "react-image-zoom";
-import img1 from "../../assets/product-image.webp";
 
 const ProductZoom = (props) => {
   const settings = {
     width: 400,
-    zoomWidth: 250,
+    zoomWidth: 100,
+
     img: props.image,
     offset: {
       vertical: 0,

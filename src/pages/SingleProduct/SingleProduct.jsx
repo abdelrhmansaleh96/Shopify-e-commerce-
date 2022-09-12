@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SingleProduct.scss";
-import { Container, Divider, Grid } from "@mui/material";
+import { Container, Divider, Grid, Alert, Snackbar } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
@@ -18,6 +18,10 @@ import { useMainContext } from "../../context/main_context";
 
 const SingleProduct = () => {
   const [counter, setCounter] = useState(1);
+  const [openAlert, setOpenAlert] = useState(false);
+  const handleClose = () => {
+    setOpenAlert(false);
+  };
   const { productId } = useParams();
   const { addToCart, cart } = useMainContext();
   const foundProduct = products.find((prod) => {
@@ -92,7 +96,11 @@ const SingleProduct = () => {
                         <div
                           className="icon-btn"
                           onClick={() => {
-                            setCounter(counter - 1);
+                            if (counter > 1) {
+                              setCounter(counter - 1);
+                            } else {
+                              setCounter(1);
+                            }
                           }}
                         >
                           <RemoveIcon fontSize="inherit" />
@@ -111,8 +119,9 @@ const SingleProduct = () => {
                       <div
                         className="add-btn"
                         onClick={() => {
-                          console.log(foundProduct, counter, cart);
                           addToCart(foundProduct.id, counter, foundProduct);
+
+                          setOpenAlert(true);
                         }}
                       >
                         <AddIcon sx={{ fontSize: "22px" }} />
@@ -175,10 +184,10 @@ const SingleProduct = () => {
             <SectionHeader title="Maybe You Like" />
             <div className="slider">
               <SubSlider slides={4}>
-                {products.map((product, index) => {
+                {products.slice(0, 6).map((product, index) => {
                   return (
                     <MainCard
-                      key={index}
+                      key={product.id}
                       name={product.name}
                       price={product.price}
                       discount={product.discount}
@@ -192,6 +201,13 @@ const SingleProduct = () => {
             </div>
           </div>
         </Container>
+        <Snackbar
+          open={openAlert}
+          autoHideDuration={3000}
+          onClose={handleClose}
+        >
+          <Alert>item has been added to the cart</Alert>
+        </Snackbar>
       </div>
     );
 

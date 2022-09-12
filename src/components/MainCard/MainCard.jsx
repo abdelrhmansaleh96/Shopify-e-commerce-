@@ -3,15 +3,23 @@ import AddIcon from "@mui/icons-material/Add";
 import "./MainCard.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
+import { useMainContext } from "../../context/main_context";
+import { Alert, Snackbar } from "@mui/material";
+import { useState } from "react";
 
-export default function MainCard({
-  name,
-  price,
-  discount,
-  image1,
-  image2,
-  id,
-}) {
+const MainCard = ({ name, price, discount, image1, image2, id }) => {
+  const { addToCart } = useMainContext();
+  const [openAlert, setOpenAlert] = useState(false);
+  const handleClose = () => {
+    setOpenAlert(false);
+  };
+  const product = {
+    name: name,
+    price: price,
+    image1: image1,
+    image2: image2,
+    discount: discount,
+  };
   return (
     <div className="container" key={id}>
       <div className="MainCard">
@@ -35,7 +43,13 @@ export default function MainCard({
               <span className="money">{price}</span>
               <span className="discount">{discount}</span>
             </div>
-            <div className="action">
+            <div
+              className="action"
+              onClick={() => {
+                addToCart(id, 1, product);
+                setOpenAlert(true);
+              }}
+            >
               <AddIcon
                 sx={{
                   fontSize: "15px",
@@ -46,6 +60,11 @@ export default function MainCard({
           </div>
         </div>
       </div>
+      <Snackbar open={openAlert} autoHideDuration={3000} onClose={handleClose}>
+        <Alert>item has been added to the cart</Alert>
+      </Snackbar>
     </div>
   );
-}
+};
+
+export default MainCard;

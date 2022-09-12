@@ -20,18 +20,8 @@ function SelectVariants() {
     setAge(event.target.value);
   };
 
-  const p = {
-    id: 1,
-    name: "Sacrificial Chair Design",
-    price: "$132",
-    discount: "$142",
-    // image1: product11,
-    // image2: product12,
-  };
-
   return (
     <div>
-      {p?.name}
       <FormControl variant="standard" sx={{ m: 1, minWidth: 160 }}>
         <InputLabel id="demo-simple-select-filled-label">
           Deafult Sorting
@@ -96,7 +86,7 @@ const Products = () => {
         <Grid container spacing={2}>
           {products.map((product, index) => {
             return (
-              <Grid item xs={6} sm={4} lg={3} key={index}>
+              <Grid item xs={6} sm={4} lg={3} key={product.id}>
                 <MainCard
                   name={product.name}
                   price={product.price}
@@ -108,42 +98,6 @@ const Products = () => {
               </Grid>
             );
           })}
-          {/* <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <MainCard />
-          </Grid> */}
         </Grid>
         <Divider />
         <div className="pagination">

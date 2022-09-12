@@ -1,16 +1,43 @@
 import React, { useState } from "react";
 import "./Cart.scss";
 import MainBreadcrumb from "../../components/MainBreadcrumb/MainBreadcrumb";
-import { Button, Container, Grid, TextareaAutosize } from "@mui/material";
+import {
+  Button,
+  CircularProgress,
+  Container,
+  Divider,
+  Grid,
+  TextareaAutosize,
+  Alert,
+  Snackbar,
+} from "@mui/material";
 import { Paper } from "@mui/material";
-import img1 from "../../assets/card1/1.webp";
+
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
+import { useMainContext } from "../../context/main_context";
 
 const Cart = () => {
-  const [counter, setCounter] = useState(1);
   const [open, setOpen] = useState(false);
+  const [openAlert, setOpenAlert] = useState(false);
+  const { total_amount, cart, removeFromCart, toggleAmount, clearCart } =
+    useMainContext();
+  const [isLoading, setIsLoading] = useState(false);
+  const handleClose = () => {
+    setOpenAlert(false);
+  };
+  const handleLoading = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setOpenAlert(true);
+      setIsLoading(false);
+      clearCart();
+
+      console.log("cart", cart);
+    }, 3000);
+  };
+
   return (
     <div className="Cart">
       <MainBreadcrumb />
@@ -30,45 +57,69 @@ const Cart = () => {
           </Grid>
         </Paper>
 
-        <Grid container spacing={2}>
-          <Grid item sm={3}>
-            <div className="image-container">
-              <img src={img1} alt="product" className="product-image" />
-            </div>
-          </Grid>
-          <Grid item sm={6}>
-            <div className="product-name">Wooden Chair</div>
-            <p style={{ color: "#606060" }}>velatheme</p>
-            <div className="price">$11.29</div>
-            <div className="actions">
-              {" "}
-              <div className="counter">
-                <div
-                  className="icon-btn"
-                  onClick={() => {
-                    setCounter(counter - 1);
-                  }}
-                >
-                  <RemoveIcon fontSize="inherit" />
+        {cart.map((cartItem, index) => {
+          return (
+            <Grid container spacing={2} key={cartItem.id}>
+              <Grid item sm={3}>
+                <div className="image-container">
+                  <img
+                    src={cartItem.image1}
+                    alt="product"
+                    className="product-image"
+                  />
                 </div>
-                <div className="amount">{counter}</div>
-                <div
-                  className="icon-btn"
-                  onClick={() => {
-                    setCounter(counter + 1);
-                  }}
-                >
-                  <AddIcon fontSize="inherit" />
+              </Grid>
+              <Grid item sm={6}>
+                <div className="product-name">{cartItem.name}</div>
+                <p style={{ color: "#606060" }}>velatheme</p>
+                <div className="price">${cartItem.price}</div>
+                <div className="actions">
+                  {" "}
+                  <div className="counter">
+                    <div
+                      className="icon-btn"
+                      onClick={() => {
+                        toggleAmount(cartItem.id, "dec");
+                      }}
+                    >
+                      <RemoveIcon fontSize="inherit" />
+                    </div>
+                    <div className="amount">{cartItem.amount}</div>
+                    <div
+                      className="icon-btn"
+                      onClick={() => {
+                        toggleAmount(cartItem.id, "add");
+                      }}
+                    >
+                      <AddIcon fontSize="inherit" />
+                    </div>
+                  </div>
+                  <div className="update">UPDATE CART</div>
+                  <div
+                    className="remove"
+                    onClick={() => {
+                      removeFromCart(cartItem.id);
+                    }}
+                  >
+                    REMOVE
+                  </div>
                 </div>
-              </div>
-              <div className="update">UPDATE CART</div>
-              <div className="remove">REMOVE</div>
-            </div>
-          </Grid>
-          <Grid item sm={3}>
-            <div className="sub-total">$11.29</div>
-          </Grid>
-        </Grid>
+              </Grid>
+              <Grid item sm={3}>
+                <div className="sub-total">
+                  ${cartItem.amount * cartItem.price}
+                </div>
+              </Grid>
+              <Divider
+                sx={{
+                  width: "100%",
+                  margin: "20px",
+                }}
+              />
+            </Grid>
+          );
+        })}
+
         <Paper
           sx={{
             backgroundColor: "#f7f7f7",
@@ -115,7 +166,7 @@ const Cart = () => {
             >
               <div className="cart-total">
                 <span className="total-title">Subtotal: </span>
-                <span className="total-price">$11.29</span>
+                <span className="total-price">${total_amount}</span>
               </div>
               <p className="shipping">
                 Shipping, taxes, and discounts will be calculated at checkout.
@@ -124,13 +175,29 @@ const Cart = () => {
                 <Button variant="outlined" sx={{ marginRight: "20px" }}>
                   UPDATE CART
                 </Button>
-                <Button variant="contained" sx={{ backgroundColor: "black" }}>
+                <Button
+                  variant="contained"
+                  sx={{ backgroundColor: "black" }}
+                  startIcon={
+                    isLoading ? <CircularProgress size="1rem" /> : null
+                  }
+                  onClick={() => {
+                    handleLoading();
+                  }}
+                >
                   CHECK OUT
                 </Button>
               </div>
             </Grid>
           </Grid>
         </Paper>
+        <Snackbar
+          open={openAlert}
+          autoHideDuration={5000}
+          onClose={handleClose}
+        >
+          <Alert severity="success">Cart has been Submitted Successfully</Alert>
+        </Snackbar>
       </Container>
     </div>
   );
