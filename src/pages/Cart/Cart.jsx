@@ -63,7 +63,7 @@ const Cart = () => {
               <Grid item sm={3}>
                 <div className="image-container">
                   <img
-                    src={cartItem.image1}
+                    src={cartItem.image}
                     alt="product"
                     className="product-image"
                   />
