@@ -1,11 +1,11 @@
 import * as React from "react";
 import AddIcon from "@mui/icons-material/Add";
 import "./MainCard.scss";
-import SearchIcon from "@mui/icons-material/Search";
-import { Link } from "react-router-dom";
+
 import { useMainContext } from "../../context/main_context";
 import { Alert, Snackbar } from "@mui/material";
 import { useState } from "react";
+import MainImage from "./MainImage";
 
 const MainCard = ({ name, price, discount, image1, image2, id }) => {
   const { addToCart } = useMainContext();
@@ -14,6 +14,7 @@ const MainCard = ({ name, price, discount, image1, image2, id }) => {
     setOpenAlert(false);
   };
   const product = {
+    id: id,
     name: name,
     price: price,
     image1: image1,
@@ -23,7 +24,7 @@ const MainCard = ({ name, price, discount, image1, image2, id }) => {
   return (
     <div className="container" key={id}>
       <div className="MainCard">
-        <div className="media-container">
+        {/* <div className="media-container">
           <div className="label">
             <span>Sale</span>
           </div>
@@ -35,7 +36,12 @@ const MainCard = ({ name, price, discount, image1, image2, id }) => {
               <SearchIcon />
             </Link>
           </div>
-        </div>
+        </div> */}
+        <MainImage
+          image1={product.image1}
+          image2={product.image2}
+          id={product.id}
+        />
         <div className="card-content">
           <h5 className="header">{name}</h5>
           <div className="action-container">

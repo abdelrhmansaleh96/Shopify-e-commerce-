@@ -36,7 +36,7 @@ const Sale = () => {
             {products.slice(0, 7).map((product, index) => {
               return (
                 <MainCard
-                  key={index}
+                  key={product.id}
                   name={product.name}
                   price={product.price}
                   discount={product.discount}

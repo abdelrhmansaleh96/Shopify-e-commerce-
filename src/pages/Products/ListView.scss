@@ -1,0 +1,102 @@
+@import "../../Variables.scss";
+.ListView {
+  width: 100%;
+  display: flex;
+  .image-container {
+    max-width: 300px;
+    .product-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    &:hover {
+      .media-container {
+        .first {
+          transition: all 0.4s ease-in-out;
+
+          opacity: 0;
+        }
+        .second {
+          transition: all 0.4s ease-in-out;
+          opacity: 1;
+        }
+        .icon {
+          opacity: 1;
+          transform: translate(0) rotate(0);
+        }
+      }
+    }
+  }
+  .header {
+    color: $--vela-text-color-secondary;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    transition: all 0.35s ease;
+    &:hover {
+      cursor: pointer;
+      color: $--vela-color-primary;
+    }
+  }
+  .reviews {
+    display: flex;
+    align-items: center;
+    height: 16px;
+    color: #333e48;
+    font-size: 12px;
+    .stars {
+      display: flex;
+      margin-right: 4px;
+    }
+  }
+  .desc {
+    font-family: $--vela-font-family;
+    font-size: $--vela-font-size;
+    line-height: 24px;
+    color: $--vela-text-color-primary;
+    background-color: $--vela-body-bg;
+    font-weight: 400;
+    max-width: 475px;
+  }
+  .money {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 24px;
+    font-weight: 400;
+    .price {
+      margin-right: 8px;
+    }
+    .discount {
+      position: relative;
+      font-size: 22px;
+      color: $--vela-text-color-banner;
+      &::before {
+        content: "";
+        width: 100%;
+        left: 0;
+        bottom: 55%;
+        height: 1px;
+        background: $--vela-text-color-banner;
+        position: absolute;
+      }
+    }
+  }
+  .action {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+    width: fit-content;
+    background-color: #fff;
+    border: 2px solid $--vela-border-color;
+    color: $--vela-text-color-secondary;
+    padding: 10px 50px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    &:hover {
+      color: $--vela-color-primary;
+      border-color: $--vela-color-primary;
+    }
+  }
+}

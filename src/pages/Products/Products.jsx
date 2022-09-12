@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "./Products.scss";
 import MainBreadcrumb from "../../components/MainBreadcrumb/MainBreadcrumb";
-import { Container, Divider } from "@mui/material";
+import {
+  Container,
+  Divider,
+  Grid,
+  Pagination,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+} from "@mui/material";
 import AppsIcon from "@mui/icons-material/Apps";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
-import { Grid } from "@mui/material";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import MainCard from "../../components/MainCard/MainCard";
-import { Pagination } from "@mui/material";
-import products from "../../products";
+import GridView from "./GridView";
+import ListView from "./ListView";
 
 function SelectVariants() {
   const [age, setAge] = useState("");
@@ -84,20 +87,7 @@ const Products = () => {
           <SelectVariants />
         </div>
         <Grid container spacing={2}>
-          {products.map((product, index) => {
-            return (
-              <Grid item xs={6} sm={4} lg={3} key={product.id}>
-                <MainCard
-                  name={product.name}
-                  price={product.price}
-                  discount={product.discount}
-                  image1={product.image1}
-                  image2={product.image2}
-                  id={product.id}
-                />
-              </Grid>
-            );
-          })}
+          {sortingActive === "grid" ? <GridView /> : <ListView />}
         </Grid>
         <Divider />
         <div className="pagination">
