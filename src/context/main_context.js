@@ -2,6 +2,7 @@ import React, { useContext, useReducer } from "react";
 import reducer from "../reducers/main_reducer";
 import { createTheme } from "@mui/material";
 import { useEffect } from "react";
+import products from "../products";
 
 const MainContext = React.createContext();
 const getLocalStorage = () => {
@@ -18,6 +19,7 @@ const initialState = {
   total_items: 0,
   total_amount: 0,
   loading: false,
+  filteredProducts: products,
 };
 const theme = createTheme({
   typography: {
@@ -47,6 +49,9 @@ export const MainProvider = ({ children }) => {
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
   };
+  const sortProducts = (value) => {
+    dispatch({ type: "SORT_PRODUCTS", payload: value });
+  };
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
     // console.log(state.cart, state.total_items, state.total_amount);
@@ -61,6 +66,7 @@ export const MainProvider = ({ children }) => {
         removeFromCart,
         toggleAmount,
         clearCart,
+        sortProducts,
       }}
     >
       {children}

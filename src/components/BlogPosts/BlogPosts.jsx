@@ -19,7 +19,7 @@ const BlogPosts = () => {
     handleResize();
 
     // window.addEventListener("resize", handleResize);
-  }, [window.innerWidth]);
+  });
   return (
     <div className="BlogPosts">
       <div className="header">

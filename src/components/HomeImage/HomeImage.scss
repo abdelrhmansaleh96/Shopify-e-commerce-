@@ -1,10 +1,15 @@
 .banner-container {
   background-color: white;
-  margin: 0 14px;
+  margin: 0 20px -20px 20px;
   .banner {
     object-fit: cover;
     width: 100%;
     height: auto;
     background-color: white;
+  }
+}
+@media (max-width: 767px) {
+  .banner-container {
+    margin: 0 20px;
   }
 }

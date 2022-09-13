@@ -1,0 +1,53 @@
+@import "../../Variables.scss";
+
+.Collections {
+  width: 100%;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 50px 10px;
+    .main-container {
+      max-width: 400px;
+      .main {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+    .header {
+      display: inline-block;
+      color: $--vela-text-color-secondary;
+      transition: all 0.35s ease;
+      font-size: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      &:hover {
+        color: $--vela-color-primary;
+      }
+    }
+    .details {
+      margin-bottom: 15px;
+      font-size: 14px;
+      color: #606060;
+    }
+    .btn {
+      display: inline-block;
+      padding: 8px 28px;
+      color: #fff;
+      background-color: $--vela-text-color-secondary;
+      border: 1px solid $--vela-text-color-secondary;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 16px;
+      transition: all 0.35s ease;
+      &:hover {
+        background-color: $--vela-color-primary;
+      }
+    }
+  }
+}

@@ -3,21 +3,23 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import DensityMediumOutlinedIcon from "@mui/icons-material/DensityMediumOutlined";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const navigate = useNavigate();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
+    navigate("/login");
     setAnchorEl(null);
   };
 
   return (
     <div>
       <div
-      
         id="basic-IconButton"
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"

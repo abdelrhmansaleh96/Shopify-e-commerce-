@@ -9,7 +9,7 @@ const HomeImage = () => {
       <Container>
         <Grid
           style={{
-            padding: 52,
+            padding: "52px 0",
             backgroundColor: "#fff",
           }}
           container

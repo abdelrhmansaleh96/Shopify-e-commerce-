@@ -1,0 +1,29 @@
+.NotFound {
+  .image-container {
+    width: 60%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .btn {
+      position: absolute;
+      bottom: 50%;
+      right: -130px;
+      border-radius: 20px;
+      border: 2px solid #dbd3d3;
+      transition: all 0.2s ease-in-out;
+      padding: 7px 36px;
+      font-weight: 600;
+      font-size: 50px;
+      cursor: pointer;
+      &:hover {
+        background-color: #ecad69;
+      }
+    }
+  }
+}

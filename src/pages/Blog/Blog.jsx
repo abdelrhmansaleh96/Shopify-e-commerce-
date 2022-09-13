@@ -9,11 +9,13 @@ import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
+import { useLocation } from "react-router-dom";
 
 const Blog = () => {
+  const location = useLocation();
   return (
     <div className="Blog">
-      <MainBreadcrumb />
+      <MainBreadcrumb location={location} />
       <Container maxWidth="lg" sx={{ marginTop: "24px" }}>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={4.5}>

@@ -7,11 +7,13 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Map from "../../components/Map/Map";
 import MainBreadcrumb from "../../components/MainBreadcrumb/MainBreadcrumb";
+import { useLocation } from "react-router-dom";
 
 const ContactUs = () => {
+  const location = useLocation();
   return (
     <div className="ContactUs">
-      <MainBreadcrumb />
+      <MainBreadcrumb location={location} />
       <Container maxWidth="lg">
         <Grid container spacing={3} sx={{ margin: "42px 0" }}>
           <Grid item xs={12} sm={6}>

@@ -1,25 +1,27 @@
 import * as React from "react";
-import PropTypes from "prop-types";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import DensitySmallIcon from "@mui/icons-material/DensitySmall";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import logo from "../../assets/logo.svg";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import "./Navbar.scss";
-import LoginMenu from "./LoginMenu";
-import { Badge, useScrollTrigger } from "@mui/material";
-import { Link } from "react-router-dom";
+import logo from "../../assets/logo.svg";
+import {
+  Box,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Toolbar,
+  Button,
+  Badge,
+  useScrollTrigger,
+  AppBar,
+} from "@mui/material";
+
+import DensitySmallIcon from "@mui/icons-material/DensitySmall";
+import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
+import { Link, useNavigate } from "react-router-dom";
 import { useMainContext } from "../../context/main_context";
-import { fontSize } from "@mui/system";
+import Search from "../Search/Search";
+import LoginMenu from "./LoginMenu";
 
 const drawerWidth = 240;
 
@@ -29,7 +31,7 @@ const navItems = [
     link: "/",
   },
   { name: "Shop", link: "/products" },
-  { name: "Collection", link: "/collection" },
+  { name: "Collections", link: "/collections" },
   { name: "Blog", link: "/blogs" },
   { name: "Contact", link: "/contactus" },
 ];
@@ -69,7 +71,7 @@ function Navbar(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
+  const navigate = useNavigate();
   return (
     <div className="navbar">
       <Box sx={{ display: "flex" }}>
@@ -104,7 +106,14 @@ function Navbar(props) {
               <DensitySmallIcon />
             </IconButton>
             <Box sx={{ width: "150px", height: "auto" }}>
-              <img className="logo" src={logo} alt="logo" />
+              <img
+                className="logo"
+                src={logo}
+                alt="logo"
+                onClick={() => {
+                  navigate("/");
+                }}
+              />
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
               {navItems.map((item, index) => (
@@ -121,19 +130,9 @@ function Navbar(props) {
                 </Button>
               ))}
             </Box>
-            <Box sx={{ display: "flex" }}>
-              <Button
-                variant="text"
-                sx={{
-                  color: "#a3a3a3",
-                  "&:hover": {
-                    color: "black",
-                  },
-                }}
-                startIcon={<SearchIcon />}
-              >
-                Search
-              </Button>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Search />
+
               <Button
                 variant="text"
                 sx={{
@@ -156,6 +155,7 @@ function Navbar(props) {
                   <Link to="/cart">Cart</Link>
                 </Badge>
               </Button>
+
               <Button>
                 <LoginMenu />
               </Button>
@@ -192,13 +192,5 @@ function Navbar(props) {
     </div>
   );
 }
-
-Navbar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default Navbar;

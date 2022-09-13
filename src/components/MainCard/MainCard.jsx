@@ -1,15 +1,15 @@
-import * as React from "react";
+import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import "./MainCard.scss";
-
 import { useMainContext } from "../../context/main_context";
 import { Alert, Snackbar } from "@mui/material";
-import { useState } from "react";
 import MainImage from "./MainImage";
+import { useNavigate } from "react-router-dom";
 
 const MainCard = ({ name, price, discount, image1, image2, id }) => {
   const { addToCart } = useMainContext();
   const [openAlert, setOpenAlert] = useState(false);
+  const navigate = useNavigate();
   const handleClose = () => {
     setOpenAlert(false);
   };
@@ -24,26 +24,20 @@ const MainCard = ({ name, price, discount, image1, image2, id }) => {
   return (
     <div className="container" key={id}>
       <div className="MainCard">
-        {/* <div className="media-container">
-          <div className="label">
-            <span>Sale</span>
-          </div>
-
-          <img src={image1} alt="green iguana" className="card-image first" />
-          <img src={image2} alt="green iguana" className="card-image second" />
-          <div className="icon">
-            <Link to={`/products/${id}`}>
-              <SearchIcon />
-            </Link>
-          </div>
-        </div> */}
         <MainImage
           image1={product.image1}
           image2={product.image2}
           id={product.id}
         />
         <div className="card-content">
-          <h5 className="header">{name}</h5>
+          <h5
+            className="header"
+            onClick={() => {
+              navigate(`/products/${id}`);
+            }}
+          >
+            {name}
+          </h5>
           <div className="action-container">
             <div className="price">
               <span className="money">{price}</span>

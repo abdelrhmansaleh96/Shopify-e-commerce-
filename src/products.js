@@ -4,7 +4,7 @@ const products = [
   {
     id: 1,
     name: "Sacrificial Chair Design",
-    price: 132,
+    price: 1322,
     discount: "$142",
     image1: product11,
     image2: product12,
@@ -12,7 +12,7 @@ const products = [
   {
     id: 2,
     name: "Sacrificial Chair Design",
-    price: 132,
+    price: 150,
     discount: "$142",
     image1:
       "https://cdn.shopify.com/s/files/1/1573/5553/products/14-1_360x.jpg?v=1601694510",
@@ -22,7 +22,7 @@ const products = [
   {
     id: 3,
     name: "Sacrificial Chair Design",
-    price: 132,
+    price: 700,
     discount: "$142",
     image1:
       "https://cdn.shopify.com/s/files/1/1573/5553/products/12_360x.jpg?v=1509980861",
@@ -32,7 +32,7 @@ const products = [
   {
     id: 4,
     name: "Sacrificial Chair Design",
-    price: 132,
+    price: 23,
     discount: "$142",
     image1:
       "https://cdn.shopify.com/s/files/1/1573/5553/products/9_d9a89bd5-61ac-4547-b397-bcea7a9b4917_360x.jpg?v=1509981236",
@@ -42,7 +42,7 @@ const products = [
   {
     id: 5,
     name: "Sacrificial Chair Design",
-    price: 132,
+    price: 85,
     discount: "$142",
     image1:
       "https://cdn.shopify.com/s/files/1/1573/5553/products/11_63e20b3b-21f2-49ff-93f8-2179551f43e0_360x.jpg?v=1591760332",
@@ -52,7 +52,7 @@ const products = [
   {
     id: 6,
     name: "Sacrificial Chair Design",
-    price: 132,
+    price: 66,
     discount: "$142",
     image1:
       "https://cdn.shopify.com/s/files/1/1573/5553/products/9_d9a89bd5-61ac-4547-b397-bcea7a9b4917_360x.jpg?v=1509981236",
@@ -62,7 +62,7 @@ const products = [
   {
     id: 7,
     name: "Sacrificial Chair Design",
-    price: 132,
+    price: 99,
     discount: "$142",
     image1:
       "https://cdn.shopify.com/s/files/1/1573/5553/products/9_d9a89bd5-61ac-4547-b397-bcea7a9b4917_360x.jpg?v=1509981236",
@@ -72,7 +72,7 @@ const products = [
   {
     id: 8,
     name: "Sacrificial Chair Design",
-    price: 132,
+    price: 140,
     discount: "$142",
     image1:
       "https://cdn.shopify.com/s/files/1/1573/5553/products/9_d9a89bd5-61ac-4547-b397-bcea7a9b4917_360x.jpg?v=1509981236",
@@ -102,7 +102,7 @@ const products = [
   {
     id: 11,
     name: "Sacrificial Chair Design",
-    price: 132,
+    price: 130,
     discount: "$142",
     image1:
       "https://cdn.shopify.com/s/files/1/1573/5553/products/9_d9a89bd5-61ac-4547-b397-bcea7a9b4917_360x.jpg?v=1509981236",

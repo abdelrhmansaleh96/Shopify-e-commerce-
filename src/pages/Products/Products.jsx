@@ -15,12 +15,18 @@ import AppsIcon from "@mui/icons-material/Apps";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import GridView from "./GridView";
 import ListView from "./ListView";
+import { useLocation } from "react-router-dom";
+import { useMainContext } from "../../context/main_context";
 
 function SelectVariants() {
+  const { sortProducts } = useMainContext();
+
   const [age, setAge] = useState("");
 
   const handleChange = (event) => {
     setAge(event.target.value);
+
+    sortProducts(event.target.value);
   };
 
   return (
@@ -39,9 +45,8 @@ function SelectVariants() {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Best-Selling</MenuItem>
-          <MenuItem value={20}>A-Z</MenuItem>
-          <MenuItem value={30}>Price</MenuItem>
+          <MenuItem value={"low"}>low to high</MenuItem>
+          <MenuItem value={"high"}>high to low</MenuItem>
         </Select>
       </FormControl>
     </div>
@@ -50,10 +55,10 @@ function SelectVariants() {
 
 const Products = () => {
   const [sortingActive, setSortingActive] = useState("grid");
-
+  const location = useLocation();
   return (
     <div className="Products">
-      <MainBreadcrumb />
+      <MainBreadcrumb location={location} />
       <Container maxWidth={"lg"} sx={{ marginTop: "36px" }}>
         <div className="icon-container">
           <div className="display-view">

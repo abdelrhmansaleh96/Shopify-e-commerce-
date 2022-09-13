@@ -10,6 +10,9 @@ import ContactUs from "./pages/ContactUs/ContactUs";
 import Blog from "./pages/Blog/Blog";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import Cart from "./pages/Cart/Cart";
+import Collections from "./pages/Collections/Collections";
+import Login from "./pages/Login/Login";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   const { theme } = useMainContext();
@@ -28,6 +31,9 @@ function App() {
                 <Route path="contactus" element={<ContactUs />} />
                 <Route path="cart" element={<Cart />} />
                 <Route path="blogs" element={<Blog />} />
+                <Route path="collections" element={<Collections />} />
+                <Route path="login" element={<Login />} />
+                <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>
           </Layout>

@@ -23,7 +23,7 @@ const SingleProduct = () => {
     setOpenAlert(false);
   };
   const { productId } = useParams();
-  const { addToCart, cart } = useMainContext();
+  const { addToCart } = useMainContext();
   const foundProduct = products.find((prod) => {
     return prod.id === Number(productId);
   });

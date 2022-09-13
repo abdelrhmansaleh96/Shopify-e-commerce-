@@ -93,7 +93,44 @@ const main_reducer = (state, action) => {
     localStorage.clear();
     return { ...state, cart: [] };
   }
-
+  if (action.type === "SORT_PRODUCTS") {
+    // const { value } = action.payload;
+    // const sortProducts = state.filteredProducts;
+    // let tempProducts = [...sortProducts];
+    // if (value === "low") {
+    //   tempProducts = tempProducts.sort((a, b) => {
+    //     if (a.price < b.price) {
+    //       return -1;
+    //     }
+    //     if (a.price > b.price) {
+    //       return 1;
+    //     }
+    //     return 0;
+    //   });
+    // }
+    // if (value === "high") {
+    //   tempProducts = tempProducts.sort((a, b) => b.price - a.price);
+    // }
+    // return { ...state, filteredProducts: tempProducts };
+    const { filteredProducts } = state;
+    const value = action.payload;
+    let tempProducts = [...filteredProducts];
+    if (value === "low") {
+      tempProducts = tempProducts.sort((a, b) => {
+        if (a.price < b.price) {
+          return -1;
+        }
+        if (a.price > b.price) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    if (value === "high") {
+      tempProducts = tempProducts.sort((a, b) => b.price - a.price);
+    }
+    return { ...state, filteredProducts: tempProducts };
+  }
   return {
     ...state,
   };

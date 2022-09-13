@@ -1,5 +1,6 @@
 .MainBreadcrumb {
   margin-top: -70px;
+  position: relative;
   .image-container {
     display: flex;
     width: 100%;
@@ -8,5 +9,11 @@
       height: auto;
       object-fit: cover;
     }
+  }
+  .breadcrumb {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%);
   }
 }
