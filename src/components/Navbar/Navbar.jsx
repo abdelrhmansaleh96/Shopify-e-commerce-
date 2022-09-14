@@ -41,6 +41,7 @@ function Navbar(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const trigger = useScrollTrigger({ threshold: 70, disableHysteresis: true });
   const { total_items } = useMainContext();
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -50,20 +51,24 @@ function Navbar(props) {
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <List>
         {navItems.map((item, index) => (
-          <Link key={index} to={item.link}>
-            <ListItem
-              disablePadding
-              sx={{
-                ":hover": {
-                  color: "#bd8448",
-                },
+          <ListItem
+            key={index}
+            disablePadding
+            sx={{
+              ":hover": {
+                color: "#bd8448",
+              },
+            }}
+          >
+            <ListItemButton
+              sx={{ textAlign: "center", margin: "12px 0" }}
+              onClick={() => {
+                navigate(item.link);
               }}
             >
-              <ListItemButton sx={{ textAlign: "center", margin: "12px 0" }}>
-                <ListItemText primary={item.name} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
+              <ListItemText primary={item.name} />
+            </ListItemButton>
+          </ListItem>
         ))}
       </List>
     </Box>
@@ -71,7 +76,6 @@ function Navbar(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-  const navigate = useNavigate();
   return (
     <div className="navbar">
       <Box sx={{ display: "flex" }}>
@@ -125,8 +129,11 @@ function Navbar(props) {
                       color: "black",
                     },
                   }}
+                  onClick={() => {
+                    navigate(item.link);
+                  }}
                 >
-                  <Link to={item.link}>{item.name}</Link>
+                  <div>{item.name}</div>
                 </Button>
               ))}
             </Box>
@@ -142,6 +149,9 @@ function Navbar(props) {
                   },
                 }}
                 startIcon={<ShoppingBasketOutlinedIcon />}
+                onClick={() => {
+                  navigate("/cart");
+                }}
               >
                 <Badge
                   badgeContent={total_items}
@@ -152,7 +162,7 @@ function Navbar(props) {
                     },
                   }}
                 >
-                  <Link to="/cart">Cart</Link>
+                  <div to="/cart">Cart</div>
                 </Badge>
               </Button>
 

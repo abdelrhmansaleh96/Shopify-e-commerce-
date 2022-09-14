@@ -15,11 +15,11 @@ const MainImage = (props) => {
         alt="green iguana"
         className="card-image second"
       />
-      <div className="icon">
-        <Link to={`/products/${props.id}`}>
+      <Link to={`/products/${props.id}`}>
+        <div className="icon">
           <SearchIcon />
-        </Link>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 };
