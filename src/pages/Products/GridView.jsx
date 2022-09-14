@@ -1,6 +1,5 @@
 import React from "react";
 import MainCard from "../../components/MainCard/MainCard";
-import products from "../../products";
 import { Grid } from "@mui/material";
 import { useMainContext } from "../../context/main_context";
 

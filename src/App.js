@@ -13,6 +13,8 @@ import Cart from "./pages/Cart/Cart";
 import Collections from "./pages/Collections/Collections";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
+import PrivateRoutes from "./helpers/PrivateRoutes";
+import Checkout from "./pages/Checkout/Checkout";
 
 function App() {
   const { theme } = useMainContext();
@@ -33,6 +35,9 @@ function App() {
                 <Route path="blogs" element={<Blog />} />
                 <Route path="collections" element={<Collections />} />
                 <Route path="login" element={<Login />} />
+                <Route element={<PrivateRoutes />}>
+                  <Route path="checkout" element={<Checkout />} />
+                </Route>
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>

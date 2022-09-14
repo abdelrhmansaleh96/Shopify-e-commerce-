@@ -26,7 +26,7 @@ const Sale = () => {
     };
     handleResize();
     // window.addEventListener("resize", handleResize);
-  }, [window.innerWidth]);
+  });
   return (
     <>
       <div className="Sale">

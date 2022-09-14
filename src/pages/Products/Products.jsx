@@ -101,6 +101,9 @@ const Products = () => {
             variant="outlined"
             count={2}
             shape="rounded"
+            onChange={(e, page) => {
+              console.log(page);
+            }}
           />
           <div className="products-displayed">Showing 12 results</div>
         </div>

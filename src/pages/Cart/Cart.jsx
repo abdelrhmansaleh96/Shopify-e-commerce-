@@ -36,7 +36,7 @@ const Cart = () => {
     setTimeout(() => {
       setIsLoading(false);
       clearCart();
-
+      navigate("/checkout");
       console.log("cart", cart);
     }, 3000);
   };

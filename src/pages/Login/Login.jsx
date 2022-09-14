@@ -11,9 +11,12 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useMainContext } from "../../context/main_context";
 
 const Login = () => {
   const [value, setValue] = React.useState(0);
+  const [mail, setMail] = React.useState("");
+  const { addUser } = useMainContext();
   const location = useLocation();
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -54,6 +57,8 @@ const Login = () => {
             <TextField
               id="outlined-basic"
               label="Email"
+              value={mail}
+              onChange={(e) => setMail(e.target.value)}
               variant="outlined"
               sx={{
                 width: "650px",
@@ -87,6 +92,10 @@ const Login = () => {
             <Button
               variant="outlined"
               sx={{ width: "650px", margin: "35px 0" }}
+              // onClick={addUser(mail)}
+              onClick={() => {
+                addUser(mail);
+              }}
             >
               SignIn
             </Button>

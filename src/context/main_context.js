@@ -13,6 +13,14 @@ const getLocalStorage = () => {
     return [];
   }
 };
+const getUser = () => {
+  let mail = localStorage.getItem("mail");
+  if (mail) {
+    return JSON.parse(localStorage.getItem("mail"));
+  } else {
+    return false;
+  }
+};
 
 const initialState = {
   cart: getLocalStorage(),
@@ -20,6 +28,7 @@ const initialState = {
   total_amount: 0,
   loading: false,
   filteredProducts: products,
+  user: getUser(),
 };
 const theme = createTheme({
   typography: {
@@ -46,6 +55,9 @@ export const MainProvider = ({ children }) => {
   const toggleAmount = (id, value) => {
     dispatch({ type: "TOGGLE_AMOUNT", payload: { id, value } });
   };
+  const addUser = (user) => {
+    dispatch({ type: "ADD_USER", payload: user });
+  };
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
   };
@@ -67,6 +79,7 @@ export const MainProvider = ({ children }) => {
         toggleAmount,
         clearCart,
         sortProducts,
+        addUser,
       }}
     >
       {children}

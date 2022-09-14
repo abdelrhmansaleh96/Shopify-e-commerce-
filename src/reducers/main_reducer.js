@@ -90,7 +90,7 @@ const main_reducer = (state, action) => {
     return { ...state, cart: tempCart };
   }
   if (action.type === "CLEAR_CART") {
-    localStorage.clear();
+    localStorage.removeItem("cart");
     return { ...state, cart: [] };
   }
   if (action.type === "SORT_PRODUCTS") {
@@ -130,6 +130,17 @@ const main_reducer = (state, action) => {
       tempProducts = tempProducts.sort((a, b) => b.price - a.price);
     }
     return { ...state, filteredProducts: tempProducts };
+  }
+  if (action.type === "ADD_USER") {
+    const mail = action.payload;
+    if (mail.length > 0) {
+      localStorage.setItem("mail", true);
+      return { ...state, user: true };
+    } else {
+      localStorage.setItem("mail", false);
+
+      return { ...state, user: false };
+    }
   }
   return {
     ...state,

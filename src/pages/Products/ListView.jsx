@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { Container, Grid, Divider } from "@mui/material";
-import products from "../../products";
 import AddIcon from "@mui/icons-material/Add";
 import StarIcon from "@mui/icons-material/Star";
 import { Alert, Snackbar } from "@mui/material";
 import MainImage from "../../components/MainCard/MainImage";
-
 import "./ListView.scss";
 import { useMainContext } from "../../context/main_context";
-import { Key } from "@mui/icons-material";
 
 const ListView = () => {
   const { addToCart, filteredProducts } = useMainContext();
