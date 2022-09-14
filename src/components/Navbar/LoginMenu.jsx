@@ -13,7 +13,6 @@ export default function LoginMenu() {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    navigate("/login");
     setAnchorEl(null);
   };
 
@@ -37,8 +36,22 @@ export default function LoginMenu() {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={handleClose}>Login</MenuItem>
-        <MenuItem onClick={handleClose}>Register</MenuItem>
+        <MenuItem
+          onClick={() => {
+            navigate("/login");
+            setAnchorEl(null);
+          }}
+        >
+          Login
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            navigate("/login");
+            setAnchorEl(null);
+          }}
+        >
+          Register
+        </MenuItem>
       </Menu>
     </div>
   );
