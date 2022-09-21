@@ -97,7 +97,13 @@ const Products = () => {
         <Divider />
         <div className="pagination">
           <Pagination
-            sx={{ scale: "1.3" }}
+            sx={{
+              scale: {
+                xs: " 1",
+                md: "1.2",
+                lg: "1.3",
+              },
+            }}
             variant="outlined"
             count={2}
             shape="rounded"
