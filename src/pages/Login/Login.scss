@@ -1,22 +1,12 @@
 .Login {
-  width: 100%;
-
-  .container {
+  .signIn {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    .signIn {
+    .name {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      .name {
-        display: flex;
-        gap: 50px;
-      }
+      gap: 50px;
     }
   }
 }
