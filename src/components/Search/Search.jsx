@@ -71,7 +71,16 @@ const Search = () => {
                   height: "35vh",
                 }}
               >
-                <Typography variant="h3" component="h2">
+                <Typography
+                  variant="h3"
+                  component="h2"
+                  textAlign="center"
+                  sx={{
+                    fontSize: {
+                      xs: "1.5rem",
+                    },
+                  }}
+                >
                   Looking for Something ? Just Type it here :
                 </Typography>
 

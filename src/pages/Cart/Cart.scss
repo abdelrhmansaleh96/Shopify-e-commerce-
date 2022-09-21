@@ -118,6 +118,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
     .header {
       padding: 10px;
       margin: 35px;
@@ -130,5 +131,11 @@
       align-items: center;
       gap: 40px;
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .back {
+    flex-direction: column;
   }
 }
