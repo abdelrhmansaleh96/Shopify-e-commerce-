@@ -14,7 +14,12 @@ const ContactUs = () => {
   return (
     <div className="ContactUs">
       <MainBreadcrumb location={location} />
-      <Container maxWidth="lg">
+      <Container
+        maxWidth="lg"
+        sx={{
+          display: "flex",
+        }}
+      >
         <Grid container spacing={3} sx={{ margin: "42px 0" }}>
           <Grid item xs={12} sm={6}>
             <h3 className="title">Find Us here.</h3>

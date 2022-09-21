@@ -4,8 +4,36 @@
   margin-top: -112px;
   position: relative;
   &:hover {
-    .MuiSvgIcon-root {
-      opacity: 1;
+    .slick-arrow {
+      opacity: 1 !important;
+    }
+  }
+
+  .slick-arrow {
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    color: gray;
+    position: absolute;
+    background: white;
+    z-index: 2;
+    transition: all 0.3s ease-out;
+
+    svg {
+      font-size: 50px;
+    }
+
+    &.slick-next {
+      left: auto;
+      right: 0;
+    }
+    &.slick-prev {
+      left: 0;
+      right: auto;
+    }
+    &:hover {
+      background-color: #bd8448;
+      color: white;
     }
   }
 
@@ -26,7 +54,7 @@
       position: absolute;
       top: 30%;
       left: 80px;
-
+      opacity: 0;
       transition: all 0.3s ease-in-out;
       .header {
         font-size: 36px;
@@ -74,6 +102,7 @@
 .slick-slide {
   &.slick-active {
     .info {
+      opacity: 1;
       .header {
         animation: bounceInLeft 1.6s ease-in backwards;
 
@@ -138,9 +167,6 @@
   content: none;
 }
 
-.slick-prev {
-  transform: none;
-}
 // .slick-next,
 // .slick-prev {
 //   width: 50px;
@@ -211,6 +237,13 @@
     scale: 0.7;
   }
   .imageSlider {
+    .slick-arrow {
+      height: 35px;
+      width: 35px;
+      svg {
+        font-size: 35px;
+      }
+    }
     .imageContainer {
       .info {
         scale: 0.5;

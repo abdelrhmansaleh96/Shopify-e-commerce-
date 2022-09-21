@@ -13,6 +13,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
+
       {children}
       <Discount />
       <Footer />

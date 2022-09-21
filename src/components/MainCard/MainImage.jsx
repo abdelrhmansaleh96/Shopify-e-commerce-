@@ -9,7 +9,7 @@ const MainImage = (props) => {
         <span>Sale</span>
       </div>
 
-      <img src={props.image1} alt="green iguana" className="card-image first" />
+      <img src={props.image1} alt="green iguana" className="card-image " />
       <img
         src={props.image2}
         alt="green iguana"

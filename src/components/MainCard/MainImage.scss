@@ -2,7 +2,9 @@
 .media-container {
   position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
   .label {
     position: absolute;
     top: 0;
@@ -50,7 +52,7 @@
     }
   }
   .card-image {
-    height: auto;
+    height: 100%;
     width: 100%;
     object-fit: cover;
     transition: all 0.4s ease-in-out;
@@ -63,5 +65,4 @@
     left: 50%;
     transform: translate(-50%);
   }
-  
 }

@@ -13,3 +13,9 @@
     color: $--vela-color-primary;
   }
 }
+
+@media (max-width: 570px) {
+  .OutlinedButton {
+    transform: scale(0.75);
+  }
+}

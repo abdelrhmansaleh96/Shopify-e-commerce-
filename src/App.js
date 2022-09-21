@@ -15,11 +15,10 @@ import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import PrivateRoutes from "./helpers/PrivateRoutes";
 import Checkout from "./pages/Checkout/Checkout";
-
 function App() {
   const { theme } = useMainContext();
   return (
-    <>
+    <div>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Layout>
@@ -44,7 +43,7 @@ function App() {
           </Layout>
         </BrowserRouter>
       </ThemeProvider>
-    </>
+    </div>
   );
 }
 

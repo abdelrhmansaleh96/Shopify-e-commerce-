@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Sale.scss";
 import "../SectionHeader/SectionHeader.jsx";
 import SectionHeader from "../SectionHeader/SectionHeader.jsx";
@@ -13,26 +13,26 @@ import logo6 from "../../assets/small-logos/logo_image6.webp";
 import products from "../../products";
 
 const Sale = () => {
-  const [slides, setSlides] = useState(4);
+  // const [slides, setSlides] = useState(4);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 999) {
-        setSlides(3);
-      }
-      if (window.innerWidth < 570) {
-        setSlides(2);
-      }
-    };
-    handleResize();
-    // window.addEventListener("resize", handleResize);
-  });
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth < 999) {
+  //       setSlides(3);
+  //     }
+  //     if (window.innerWidth < 570) {
+  //       setSlides(2);
+  //     }
+  //   };
+  //   handleResize();
+  //   // window.addEventListener("resize", handleResize);
+  // });
   return (
     <>
       <div className="Sale">
         <SectionHeader title={"Sale Off"} />
         <div className="items">
-          <SubSlider slides={slides}>
+          <SubSlider slidesToShow={2}>
             {products.slice(0, 7).map((product, index) => {
               return (
                 <MainCard
@@ -49,7 +49,7 @@ const Sale = () => {
           </SubSlider>
         </div>
         <div className="logos">
-          <SubSlider slides={slides}>
+          <SubSlider slidesToShow={2}>
             <div>
               <img className="logo" src={logo1} alt="logo" />
             </div>

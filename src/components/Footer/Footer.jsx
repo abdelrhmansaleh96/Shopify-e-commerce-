@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <div className="Footer">
       <Container
-        maxWidth="90vw"
+        maxWidth="lg"
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -105,7 +105,7 @@ const Footer = () => {
             </div>
           </Grid>
         </Grid>
-        <Divider sx={{ backgroundColor: "gray", width: "100vw" }} />
+        <Divider sx={{ backgroundColor: "gray" }} />
         <div className="copy-rights">
           <div className="desc">
             Copyright © 2022 <span>Outstock</span> all rights reserved.

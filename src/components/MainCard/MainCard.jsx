@@ -40,7 +40,7 @@ const MainCard = ({ name, price, discount, image1, image2, id }) => {
           </h5>
           <div className="action-container">
             <div className="price">
-              <span className="money">{price}</span>
+              <span className="money">${price}</span>
               <span className="discount">{discount}</span>
             </div>
             <div

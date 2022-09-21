@@ -8,14 +8,14 @@ import Sale from "../../components/Sale/Sale";
 import BlogPosts from "../../components/BlogPosts/BlogPosts";
 const Home = () => {
   return (
-    <>
+    <div className="Home">
       <MainSlider />
       <HomeImage />
       <Trending />
       <Banner />
       <Sale />
       <BlogPosts />
-    </>
+    </div>
   );
 };
 

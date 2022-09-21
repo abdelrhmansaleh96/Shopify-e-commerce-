@@ -117,7 +117,7 @@ const Cart = () => {
                 </Grid>
                 <Divider
                   sx={{
-                    width: "100%",
+                    width: "80%",
                     margin: "20px",
                   }}
                 />
@@ -211,14 +211,14 @@ const Cart = () => {
           <div className="header">Your Cart Is Empty!</div>
           <div className="back">
             <img src={shopping} alt="shopping" />
-            <Button
+            {/* <Button
               variant="outlined"
               onClick={() => {
                 navigate("/products");
               }}
             >
               Go Shopping
-            </Button>
+            </Button> */}
           </div>
         </div>
       )}

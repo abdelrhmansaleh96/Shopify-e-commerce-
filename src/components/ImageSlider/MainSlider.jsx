@@ -12,21 +12,7 @@ function SampleNextArrow(props) {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <NavigateNextIcon
-        sx={{
-          opacity: "0",
-          fontSize: "50px",
-          color: "gray",
-          right: "27px",
-          position: "absolute",
-          background: "white",
-          transition: "all 0.3s ease-out",
-          "&:hover": {
-            backgroundColor: "#bd8448",
-            color: "white",
-          },
-        }}
-      />
+      <NavigateNextIcon />
     </div>
   );
 }
@@ -35,22 +21,7 @@ function SamplePrevArrow(props) {
   const { onClick, className } = props;
   return (
     <div className={className} onClick={onClick}>
-      <NavigateBeforeIcon
-        sx={{
-          opacity: "0",
-          zIndex: "5",
-          fontSize: "50px",
-          color: "gray",
-          left: "25px",
-          position: "absolute",
-          background: "white",
-          transition: "all 0.3s ease-in",
-          "&:hover": {
-            backgroundColor: "#bd8448",
-            color: "white",
-          },
-        }}
-      />
+      <NavigateBeforeIcon />
     </div>
   );
 }

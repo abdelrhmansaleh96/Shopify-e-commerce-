@@ -40,17 +40,39 @@ function SamplePrevArrow(props) {
 const SubSlider = (props) => {
   const settings = {
     dots: FlashlightOffOutlined,
-    infinite: true,
+    infinite: false,
     speed: 500,
+    slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: props.slidesToShow,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div className="SaleSlider">
-      <Slider {...settings} slidesToShow={props.slides}>
-        {props.children}
-      </Slider>
+      <Slider {...settings}>{props.children}</Slider>
     </div>
   );
 };

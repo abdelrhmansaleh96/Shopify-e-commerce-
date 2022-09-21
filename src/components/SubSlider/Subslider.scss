@@ -1,6 +1,7 @@
 .SaleSlider {
   // width: 80vw;
   .slick-slider {
+    overflow-x: hidden;
     .slick-arrow {
       z-index: 1000;
       &:hover {

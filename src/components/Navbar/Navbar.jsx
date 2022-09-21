@@ -36,7 +36,7 @@ const navItems = [
   { name: "Contact", link: "/contactus" },
 ];
 
-function Navbar(props) {
+function  Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const trigger = useScrollTrigger({ threshold: 70, disableHysteresis: true });
